@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MySootheChallengeTheme {
-                LoginScreen()
+                HomeScreen()
             }
         }
     }
@@ -26,6 +26,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     MySootheChallengeTheme {
-        WelcomeScreen()
+        HomeScreen()
     }
 }
