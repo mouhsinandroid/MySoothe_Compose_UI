@@ -4,10 +4,13 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mouhsinbourqaiba.mysoothe_challenge.ui.theme.MySootheChallengeTheme
@@ -28,8 +31,28 @@ fun HomeScreen() {
                 leadingIcon = Icons.Default.Search
             )
 
+            FavoriteCollectionSection()
+
         }
     }
+
+}
+
+@Composable
+private fun FavoriteCollectionSection() {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Text(
+            text = "FAVORITE COLLECTION",
+            modifier = Modifier.paddingFromBaseline(40.dp),
+            style = MaterialTheme.typography.h2
+        )
+
+        FavoriteCollectionRow(collections = favoriteCollectionOne)
+        FavoriteCollectionRow(collections = favoriteCollectionTwo)
+    }
+
 
 }
 
