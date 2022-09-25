@@ -15,7 +15,9 @@ import androidx.compose.ui.unit.dp
 import com.mouhsinbourqaiba.mysoothe_challenge.ui.theme.MySootheChallengeTheme
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+    loginButtonClicked: ()-> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -24,14 +26,16 @@ fun WelcomeScreen() {
         WelcomeBackground()
 
         ButtonColumn(
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier.align(Alignment.Center),
+            loginButtonClicked = loginButtonClicked
         )
     }
 }
 
 @Composable
 private fun ButtonColumn(
-    modifier: Modifier
+    modifier: Modifier,
+    loginButtonClicked: ()-> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -41,12 +45,14 @@ private fun ButtonColumn(
         
         Spacer(modifier = Modifier.height(32.dp))
 
-        MySootheButton(onClick = { /*TODO*/ }, buttonText = "SING UP")
+        MySootheButton(
+            onClick = loginButtonClicked,
+            buttonText = "SING UP")
 
         Spacer(modifier = Modifier.height(8.dp))
 
         MySootheButton(
-            onClick = { /*TODO*/ },
+            onClick = loginButtonClicked,
             buttonText = "LOG IN",
             backgroundColor = MaterialTheme.colors.secondary
         )
@@ -101,7 +107,9 @@ private fun WelcomeBackground() {
 @Composable
 private fun WelcomeScreenPreview() {
     MySootheChallengeTheme() {
-        WelcomeScreen()
+        WelcomeScreen(
+            loginButtonClicked = {}
+        )
     }
 
 }
