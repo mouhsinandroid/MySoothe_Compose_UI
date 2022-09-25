@@ -5,12 +5,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mouhsinbourqaiba.mysoothe_challenge.ui.theme.MySootheChallengeTheme
@@ -21,14 +19,13 @@ fun HomeScreen() {
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        Column(
-            modifier = Modifier.padding(horizontal = 16.dp)
-        ) {
+        Column {
             Spacer(modifier = Modifier.height(72.dp))
             
             MySootheTextField(
                 labelText = "Search",
-                leadingIcon = Icons.Default.Search
+                leadingIcon = Icons.Default.Search,
+                modifier = Modifier.padding(horizontal = 16.dp)
             )
 
             FavoriteCollectionSection()
@@ -45,14 +42,50 @@ private fun FavoriteCollectionSection() {
     ) {
         Text(
             text = "FAVORITE COLLECTION",
-            modifier = Modifier.paddingFromBaseline(40.dp),
+            modifier = Modifier
+                .paddingFromBaseline(40.dp)
+                .padding(horizontal = 16.dp),
             style = MaterialTheme.typography.h2
         )
 
         FavoriteCollectionRow(collections = favoriteCollectionOne)
         FavoriteCollectionRow(collections = favoriteCollectionTwo)
+
+        AlignYourBodySection()
+
+        AlignYourMindSection()
     }
 
+
+}
+
+@Composable
+private fun AlignYourBodySection() {
+
+    Text(
+        text = "ALIGN YOUR BODY",
+        modifier = Modifier
+            .paddingFromBaseline(40.dp)
+            .padding(horizontal = 16.dp),
+        style = MaterialTheme.typography.h2
+    )
+
+    CollectionRow(collections = alignYourBodyCollections)
+
+}
+
+@Composable
+private fun AlignYourMindSection() {
+
+    Text(
+        text = "ALIGN YOUR MIND",
+        modifier = Modifier
+            .paddingFromBaseline(40.dp)
+            .padding(horizontal = 16.dp),
+        style = MaterialTheme.typography.h2
+    )
+
+    CollectionRow(collections = alignYourMindCollections)
 
 }
 

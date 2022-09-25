@@ -12,8 +12,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mouhsinbourqaiba.mysoothe_challenge.ui.theme.MySootheChallengeTheme
 
+
 @Composable
-fun FavoriteCollectionRow(
+fun CollectionRow(
     collections: List<Collection>
 ) {
 
@@ -23,7 +24,7 @@ fun FavoriteCollectionRow(
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         items(collections) { collection ->
-            FavoriteCollectionCard(collection = collection)
+            CollectionRowItem(collection = collection)
 
         }
     }
@@ -41,8 +42,8 @@ fun FavoriteCollectionRow(
 )
 
 @Composable
-private fun FavoriteCollectionRowPreview() {
+private fun CollectionRowPreview() {
     MySootheChallengeTheme {
-        FavoriteCollectionRow(collections = favoriteCollectionOne)
+        CollectionRow(collections = favoriteCollectionOne)
     }
 }
